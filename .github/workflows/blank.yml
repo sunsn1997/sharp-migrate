@@ -1,0 +1,27 @@
+name: Download sharp.node
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+            node-version: 20.x
+
+      - name: Install sharp
+        run: npm install sharp@0.33.5
+
+      - name: Check sharp.node location
+        run: ls -l node_modules/sharp/build/Release/sharp.node
+        
+      - name: Upload sharp.node as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+            name: sharp.node
+            path: node_modules/sharp/build/Release/sharp.node
