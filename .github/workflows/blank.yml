@@ -26,4 +26,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: sunsn0719/continue-dev:latest
+        tags: ssn0719/continue-dev:latest
